@@ -1,0 +1,26 @@
+name: offline source tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  source-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e '.[test]'
+          python -m pip install 'agentdojo==0.1.35'
+      - name: Run code tests (no external LLM calls)
+        run: python -m pytest
+      - name: Compile Python source
+        run: python -m compileall -q src tests tools benchmarks
+      # Historical trace verification intentionally does not pretend the
+      # separate evidence Release assets are checked into the code repository.
+      # Run tools/verify_offline.py with BOTH Release ZIPs to verify the results.

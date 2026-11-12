@@ -1,0 +1,85 @@
+{
+  "manifest_schema": "eip.agentdyn.release_lock.v1",
+  "locked_utc": "2026-10-16T10:16:40Z",
+  "status": "locked-for-final-execution",
+  "benchmark": {
+    "name": "AgentDyn",
+    "version": "v1.2.2",
+    "attack": "important_instructions",
+    "suites": {
+      "shopping": {
+        "user_tasks": 20,
+        "injection_tasks": 9,
+        "matrix_cells": 180
+      },
+      "github": {
+        "user_tasks": 20,
+        "injection_tasks": 9,
+        "matrix_cells": 180
+      },
+      "dailylife": {
+        "user_tasks": 20,
+        "injection_tasks": 10,
+        "matrix_cells": 200
+      }
+    },
+    "total_matrix_cells": 560
+  },
+  "agent": {
+    "model": "GPT_4O_MINI_2024_07_18",
+    "temperature": 0,
+    "defense_mode": "enforce",
+    "env": {
+      "EIP_DEFENSE_MODE": "enforce",
+      "EIP_P09": "1",
+      "EIP_EFFECT_SUPPORT": "0",
+      "EIP_PENDING_EFFECT": "0"
+    }
+  },
+  "cache_policy": {
+    "development_force_rerun": false,
+    "final_run_directory": "results/final_v3/agentdyn_eip_enforce_v3",
+    "native_baseline_source": "agentdyn/runs/gpt-4o-mini-2024-07-18",
+    "native_rerun_required": false,
+    "final_run_must_be_fresh": true,
+    "never_mix_development_results": true
+  },
+  "source": {
+    "workspace_git_commit": "not-a-git-worktree",
+    "tracked_sha256": {
+      "agentdojo_eip_element.py": "dd3636c61ab45543beaac65072e92136d7f677ae268f72dbd713094ceb56ad25",
+      "agentdojo_eip_action_resolution.py": "7b72f687556ba816f42d23d8b94066b5ffed59a022221db166b464e3c37b18e6",
+      "agentdojo_eip_object_alignment.py": "ac5a7c098be716e4e3db664d715f76f647591b71fc263e2fc89f7aec373ea484",
+      "agentdojo_eip_pending_effect.py": "30bd99d0daaa7777c86dfe636528a76146c9543f5b11d1de6bbbe942898d35ea",
+      "agentdojo_eip_p09.py": "267134176845b94f4a46633bb194a4d290214e0d6e7eb713ce89d57b6151dc95",
+      "agentdojo_eip_planfirst.py": "e1e948225656a227e4fee90c98db128d4386af95e8495f42cd16afd8a7c5794b",
+      "agentdojo_eip_defense_module.py": "1e0810b80ff3a3c74cfd711f1fbbc3df60e01eb3a72cbc9c130a76c258a7c79a",
+      "agentdojo_eip_membership_probe.py": "17a7642cf2cf271a51a79d8e1162193c8efde5dbc417b87d4f8c571b625ab554",
+      "agentdojo_eip_effect_support.py": "f88e1f96f8510864ba229629ec49cad5a44002bf80932d2359496493eff9f7c7",
+      "gate_eval.py": "edf9120db625965813b277892f5cf85f557c29ff3afa1d1faf801860fa1e2bd0",
+      "free_action_resolution_experiment.py": "e1abd9db0dc68352bc1f21698e0bd2ba834570969084e65249322dcd3eb9f541",
+      "aggregate_agentdyn_results.py": "62e3d49c1ed042c32ee116fc1e910c43f027df3e94580b33638c46a479039c1d",
+      "scorecard_vs_competitors.py": "42055cd635599bea34736885c676f75a2ffe125d35a7a73a86df771dcb0588c1",
+      "run_batch.sh": "90c3271e515d7f548d953df798a98195dca7c91816b34c9d7bd13ff5bf6fc9e6",
+      "run_locked_agentdyn_batch.sh": "0e9a2e8a4f86f1d70278768ebcf944cc2c84d6abd3699b1bae154ef0ff00fc07",
+      "eip_p09_cache.json": "94cf8d4e23570a54f359612e8a42f813232d09e3b74faff21e5674d45ba6c1e7",
+      "test_agentdojo_eip_element.py": "ed1983f7dca4838c2d4a2f08d2545bbb8921df83811b1597716d188bb1fdd6b4"
+    }
+  },
+  "validation": {
+    "required_before_final_run": [
+      "pytest test_agentdojo_eip_element.py",
+      "python -m py_compile tracked Python files",
+      "free_action_resolution_experiment.py",
+      "scorecard_vs_competitors.py"
+    ],
+    "provider_pending_effect": "opt-in only; excluded from final baseline until runtime adapter is independently validated"
+  },
+  "final_commands": {
+    "native_source": "agentdyn/runs/gpt-4o-mini-2024-07-18",
+    "eip_enforce": "EIP_DEFENSE_MODE=enforce EIP_P09=1 EIP_EFFECT_SUPPORT=0 EIP_PENDING_EFFECT=0 python -m agentdojo.scripts.benchmark -s shopping -s github -s dailylife --model GPT_4O_MINI_2024_07_18 --attack important_instructions --module-to-load agentdojo_eip_defense_module --logdir results/final_v3/agentdyn_eip_enforce_v3",
+    "aggregate": "python aggregate_agentdyn_results.py --enforce results/final_v3/agentdyn_eip_enforce_v3 --native agentdyn/runs/gpt-4o-mini-2024-07-18",
+    "batch_controller": "./run_locked_agentdyn_batch.sh <suite> <user_task_start> <user_task_count>"
+  },
+  "claim_boundary": "Report the locked 560-cell paired aggregate from the pinned, fault-isolated slices. Describe the execution as partitioned evidence with exact-once cell ownership and deterministic aggregation; do not imply that it came from one uninterrupted process."
+}

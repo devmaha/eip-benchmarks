@@ -1,0 +1,240 @@
+{
+  "benchmark": "AgentDojo",
+  "benchmark_version": "v1.2",
+  "attack": "important_instructions",
+  "declared_native_set_cells": 629,
+  "full_grid_cells": 949,
+  "claim_status": "complete",
+  "paired_cells": 629,
+  "eip_missing_from_declared_set": 0,
+  "eip_missing_by_suite": {},
+  "eip_cells_outside_paired_set": 37,
+  "files": {
+    "eip": {
+      "probe": 74,
+      "attacked": 666
+    },
+    "native": {
+      "probe": 27,
+      "attacked": 629,
+      "benign": 97
+    },
+    "drift": {
+      "attacked": 949
+    }
+  },
+  "benchmark_version_seen": {
+    "eip": {
+      "v1.2": 666
+    },
+    "native": {
+      "None": 629
+    },
+    "drift": {
+      "v1.2": 949
+    }
+  },
+  "per_suite": {
+    "workspace": {
+      "cells": 240,
+      "eip": {
+        "utility": 0.5958333333333333,
+        "asr": 0.0,
+        "asr_successes": 0,
+        "asr_95ci_wilson": [
+          0.0,
+          0.015753920186173317
+        ]
+      },
+      "native": {
+        "utility": 0.5916666666666667,
+        "asr": 0.17916666666666667,
+        "asr_successes": 43,
+        "asr_95ci_wilson": [
+          0.1358225744869703,
+          0.23261952429915758
+        ]
+      },
+      "drift": {
+        "utility": 0.6041666666666666,
+        "asr": 0.016666666666666666,
+        "asr_successes": 4,
+        "asr_95ci_wilson": [
+          0.006499940676701496,
+          0.04206218216993271
+        ]
+      }
+    },
+    "travel": {
+      "cells": 140,
+      "eip": {
+        "utility": 0.3,
+        "asr": 0.0,
+        "asr_successes": 0,
+        "asr_95ci_wilson": [
+          0.0,
+          0.026706200779471608
+        ]
+      },
+      "native": {
+        "utility": 0.4714285714285714,
+        "asr": 0.1357142857142857,
+        "asr_successes": 19,
+        "asr_95ci_wilson": [
+          0.08863473689335005,
+          0.2022512093888364
+        ]
+      },
+      "drift": {
+        "utility": 0.5357142857142857,
+        "asr": 0.0,
+        "asr_successes": 0,
+        "asr_95ci_wilson": [
+          0.0,
+          0.026706200779471608
+        ]
+      }
+    },
+    "banking": {
+      "cells": 144,
+      "eip": {
+        "utility": 0.4583333333333333,
+        "asr": 0.0,
+        "asr_successes": 0,
+        "asr_95ci_wilson": [
+          0.0,
+          0.025983637542296996
+        ]
+      },
+      "native": {
+        "utility": 0.3819444444444444,
+        "asr": 0.3402777777777778,
+        "asr_successes": 49,
+        "asr_95ci_wilson": [
+          0.2679409511860207,
+          0.42091493302887983
+        ]
+      },
+      "drift": {
+        "utility": 0.4097222222222222,
+        "asr": 0.04861111111111111,
+        "asr_successes": 7,
+        "asr_95ci_wilson": [
+          0.023743988125334313,
+          0.09693568465590605
+        ]
+      }
+    },
+    "slack": {
+      "cells": 105,
+      "eip": {
+        "utility": 0.5047619047619047,
+        "asr": 0.0,
+        "asr_successes": 0,
+        "asr_95ci_wilson": [
+          0.0,
+          0.03529407746624885
+        ]
+      },
+      "native": {
+        "utility": 0.4857142857142857,
+        "asr": 0.5714285714285714,
+        "asr_successes": 60,
+        "asr_95ci_wilson": [
+          0.4759032487285161,
+          0.6619118830620198
+        ]
+      },
+      "drift": {
+        "utility": 0.5238095238095238,
+        "asr": 0.009523809523809525,
+        "asr_successes": 1,
+        "asr_95ci_wilson": [
+          0.0016831692142570374,
+          0.0519862591573966
+        ]
+      }
+    }
+  },
+  "aggregate": {
+    "cells": 629,
+    "eip": {
+      "utility": 0.48330683624801274,
+      "asr": 0.0,
+      "asr_successes": 0,
+      "asr_95ci_wilson": [
+        0.0,
+        0.006070175756320911
+      ]
+    },
+    "native": {
+      "utility": 0.49920508744038156,
+      "asr": 0.2718600953895072,
+      "asr_successes": 171,
+      "asr_95ci_wilson": [
+        0.23855312498872244,
+        0.30793676442632373
+      ]
+    },
+    "drift": {
+      "utility": 0.5310015898251192,
+      "asr": 0.019077901430842606,
+      "asr_successes": 12,
+      "asr_95ci_wilson": [
+        0.01094643286509512,
+        0.033047933323417045
+      ]
+    }
+  },
+  "paired_tests": {
+    "eip_vs_drift_asr": {
+      "only_a": 0,
+      "only_b": 12,
+      "p_value": 0.00048828125
+    },
+    "eip_vs_drift_utility": {
+      "only_a": 93,
+      "only_b": 123,
+      "p_value": 0.0482212095065314
+    },
+    "eip_vs_native_asr": {
+      "only_a": 0,
+      "only_b": 171,
+      "p_value": 6.681911775230489e-52
+    },
+    "eip_vs_native_utility": {
+      "only_a": 79,
+      "only_b": 89,
+      "p_value": 0.4875669955799865
+    }
+  },
+  "reference_native_drift_629": {
+    "cells": 629,
+    "native": {
+      "utility": 0.49920508744038156,
+      "asr": 0.2718600953895072
+    },
+    "drift": {
+      "utility": 0.5310015898251192,
+      "asr": 0.019077901430842606
+    }
+  },
+  "eip_missing_cells": [],
+  "benign_utility": {
+    "eip": {
+      "cells": 0,
+      "utility": null,
+      "status": "not measured"
+    },
+    "native": {
+      "cells": 97,
+      "utility": 0.6804123711340206,
+      "status": "measured"
+    },
+    "drift": {
+      "cells": 0,
+      "utility": null,
+      "status": "not measured"
+    }
+  }
+}

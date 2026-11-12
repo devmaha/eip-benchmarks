@@ -1,0 +1,41 @@
+name: verify historical release evidence
+
+on:
+  workflow_dispatch:
+    inputs:
+      agentdyn_asset_url:
+        description: 'Public direct GitHub Release URL for AgentDyn evidence ZIP'
+        type: string
+        required: true
+      agentdojo_asset_url:
+        description: 'Public direct GitHub Release URL for AgentDojo evidence ZIP'
+        type: string
+        required: true
+
+jobs:
+  verify-historical-records:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Download approved evidence assets
+        env:
+          AGENTDYN_URL: ${{ inputs.agentdyn_asset_url }}
+          AGENTDOJO_URL: ${{ inputs.agentdojo_asset_url }}
+        run: |
+          python - <<'PY'
+          import os
+          from urllib.parse import urlparse
+          prefix = '/Devmaha/eip-benchmarks/releases/download/'
+          for key in ('AGENTDYN_URL', 'AGENTDOJO_URL'):
+              parsed = urlparse(os.environ[key])
+              if parsed.scheme != 'https' or parsed.netloc != 'github.com' or not parsed.path.startswith(prefix):
+                  raise SystemExit(f'{key} must be a GitHub Release asset in Devmaha/eip-benchmarks')
+          PY
+          curl --fail --location --retry 3 --max-time 180 "$AGENTDYN_URL" -o /tmp/agentdyn.zip
+          curl --fail --location --retry 3 --max-time 180 "$AGENTDOJO_URL" -o /tmp/agentdojo.zip
+      - name: Verify per-file hashes and independently recompute historical scores
+        run: python tools/verify_offline.py --agentdyn-zip /tmp/agentdyn.zip --agentdojo-zip /tmp/agentdojo.zip

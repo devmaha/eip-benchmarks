@@ -1,0 +1,64 @@
+{
+  "schema": "eip.agentdyn.bundle_lock.v2",
+  "supersedes": "lock/AGENTDYN_FINAL_RELEASE_LOCK_v1_original.json",
+  "defense_modules_and_tests": {
+    "eip/agentdojo_eip_action_resolution.py": {
+      "sha256": "7b72f687556ba816f42d23d8b94066b5ffed59a022221db166b464e3c37b18e6",
+      "v1_lock_sha256": "7b72f687556ba816f42d23d8b94066b5ffed59a022221db166b464e3c37b18e6",
+      "matches_v1_lock": true
+    },
+    "eip/agentdojo_eip_defense_module.py": {
+      "sha256": "1e0810b80ff3a3c74cfd711f1fbbc3df60e01eb3a72cbc9c130a76c258a7c79a",
+      "v1_lock_sha256": "1e0810b80ff3a3c74cfd711f1fbbc3df60e01eb3a72cbc9c130a76c258a7c79a",
+      "matches_v1_lock": true
+    },
+    "eip/agentdojo_eip_effect_support.py": {
+      "sha256": "f88e1f96f8510864ba229629ec49cad5a44002bf80932d2359496493eff9f7c7",
+      "v1_lock_sha256": "f88e1f96f8510864ba229629ec49cad5a44002bf80932d2359496493eff9f7c7",
+      "matches_v1_lock": true
+    },
+    "eip/agentdojo_eip_element.py": {
+      "sha256": "dd3636c61ab45543beaac65072e92136d7f677ae268f72dbd713094ceb56ad25",
+      "v1_lock_sha256": "dd3636c61ab45543beaac65072e92136d7f677ae268f72dbd713094ceb56ad25",
+      "matches_v1_lock": true
+    },
+    "eip/agentdojo_eip_membership_probe.py": {
+      "sha256": "17a7642cf2cf271a51a79d8e1162193c8efde5dbc417b87d4f8c571b625ab554",
+      "v1_lock_sha256": "17a7642cf2cf271a51a79d8e1162193c8efde5dbc417b87d4f8c571b625ab554",
+      "matches_v1_lock": true
+    },
+    "eip/agentdojo_eip_object_alignment.py": {
+      "sha256": "ac5a7c098be716e4e3db664d715f76f647591b71fc263e2fc89f7aec373ea484",
+      "v1_lock_sha256": "ac5a7c098be716e4e3db664d715f76f647591b71fc263e2fc89f7aec373ea484",
+      "matches_v1_lock": true
+    },
+    "eip/agentdojo_eip_p09.py": {
+      "sha256": "267134176845b94f4a46633bb194a4d290214e0d6e7eb713ce89d57b6151dc95",
+      "v1_lock_sha256": "267134176845b94f4a46633bb194a4d290214e0d6e7eb713ce89d57b6151dc95",
+      "matches_v1_lock": true
+    },
+    "eip/agentdojo_eip_pending_effect.py": {
+      "sha256": "30bd99d0daaa7777c86dfe636528a76146c9543f5b11d1de6bbbe942898d35ea",
+      "v1_lock_sha256": "30bd99d0daaa7777c86dfe636528a76146c9543f5b11d1de6bbbe942898d35ea",
+      "matches_v1_lock": true
+    },
+    "eip/agentdojo_eip_planfirst.py": {
+      "sha256": "e1e948225656a227e4fee90c98db128d4386af95e8495f42cd16afd8a7c5794b",
+      "v1_lock_sha256": "e1e948225656a227e4fee90c98db128d4386af95e8495f42cd16afd8a7c5794b",
+      "matches_v1_lock": true
+    },
+    "tests/test_agentdojo_eip_element.py": {
+      "sha256": "269f5e0b54aef36e7c3785037fb043a2c64723f3677586589e628f2a36d3140e",
+      "v1_lock_sha256": "ed1983f7dca4838c2d4a2f08d2545bbb8921df83811b1597716d188bb1fdd6b4",
+      "matches_v1_lock": false,
+      "intentional_change": "One assertion changed in test_non_destination_field_is_allowed_even_with_injected_value (formerly test_credential_change_without_established_value_held): `== \"hold\" or True` (always passed) replaced by `== \"allow\"`, the gate's actual output. No defense code changed."
+    }
+  },
+  "shared_modules": {
+    "eip/eip_benchmark_port.py": {
+      "sha256": "3485b6216003c2e96190483f9870763557a94c2e3f7296ea8b9f7106889889eb",
+      "v1_lock_sha256": null,
+      "matches_v1_lock": null
+    }
+  }
+}

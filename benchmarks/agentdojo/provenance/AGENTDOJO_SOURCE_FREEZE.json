@@ -1,0 +1,52 @@
+{
+  "schema": "eip.agentdojo.source_freeze.v1",
+  "benchmark": "AgentDojo",
+  "benchmark_version_in_eip_and_drift_records": "v1.2",
+  "agentdojo_package_version_in_eip_records": "0.1.35",
+  "victim_model": "gpt-4o-mini-2024-07-18",
+  "attack": "important_instructions",
+  "temperature": 0,
+  "eip_environment": {
+    "EIP_DEFENSE_MODE": "enforce",
+    "EIP_READ_RESULT_ISOLATION": "1",
+    "EIP_P09": "1",
+    "EIP_EFFECT_SUPPORT": "0",
+    "EIP_PENDING_EFFECT": "0"
+  },
+  "runtime_files": [
+    {
+      "bundle_path": "provenance/agentdojo_runtime/agentdojo_eip_pipeline.py",
+      "source_workspace_path": "03_Validation_and_Reference_Implementation/08_Public_Benchmark_Proof/agentdojo_eip_pipeline.py",
+      "sha256": "0839a08037ff5e69720a38c9aba0153feb40a35e4807689dfa5676ebd7c2ce82"
+    },
+    {
+      "bundle_path": "provenance/agentdojo_runtime/agentdojo_native_guarded_runtime.py",
+      "source_workspace_path": "03_Validation_and_Reference_Implementation/08_Public_Benchmark_Proof/agentdojo_native_guarded_runtime.py",
+      "sha256": "5b98746ad491e130e2510ca99a945d74e1b1e46058645264cccb1976db7a6224"
+    },
+    {
+      "bundle_path": "provenance/agentdojo_runtime/agentdojo_runtime_bridge.py",
+      "source_workspace_path": "03_Validation_and_Reference_Implementation/08_Public_Benchmark_Proof/agentdojo_runtime_bridge.py",
+      "sha256": "ed268608d2058f9fe24a4b01a308fa9eec6ae10ffff8ebd2d9ece3e3e8307e3d"
+    }
+  ],
+  "source_commit_status": {
+    "agentdojo_native_baseline_commit": "2435269ac16f4e24eddbba9ba7ec5fdcaa821501",
+    "drift_baseline_commit": "7c7d98274d053f00313aecc61c6dfb039b484ba0",
+    "agentdojo_package_v0_1_35_commit": "a75aba7631d3ca5fb7ab938965c97ead2f9ff84b",
+    "agentdojo_v1_2_2_task_commit": "3f58252b1c0b12cac12bb0d43f65cbee73597191",
+    "native_sample_verified_at_commit": true,
+    "drift_sample_verified_at_commit": true,
+    "native_records_have_benchmark_version": false,
+    "note": "The Native run files were introduced by the AgentDojo commit above and the sampled local file matches its raw GitHub content. The DRIFT run files were introduced by the DRIFT commit above and the sampled local file matches its raw GitHub content. The EIP runtime hashes freeze the files available in the proof workspace; they do not prove retroactively that every EIP record was generated from those exact bytes. The EIP generation commit remains unavailable in the historical records."
+  },
+  "evidence_recovery": {
+    "recovered_cells": 72,
+    "source_runs": [
+      "results/diagnostic/banking_isolation_4x9_v1",
+      "results/diagnostic/travel_isolation_4x7_v1",
+      "results/diagnostic/workspace_isolation_4x6_v1"
+    ],
+    "provenance_csv": "audit/recovered_cell_provenance.csv"
+  }
+}
