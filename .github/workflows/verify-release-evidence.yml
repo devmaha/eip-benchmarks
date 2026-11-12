@@ -29,10 +29,10 @@ jobs:
           python - <<'PY'
           import os
           from urllib.parse import urlparse
-          prefix = '/Devmaha/eip-benchmarks/releases/download/'
+          prefix = '/devmaha/eip-benchmarks/releases/download/'
           for key in ('AGENTDYN_URL', 'AGENTDOJO_URL'):
               parsed = urlparse(os.environ[key])
-              if parsed.scheme != 'https' or parsed.netloc != 'github.com' or not parsed.path.startswith(prefix):
+              if parsed.scheme != 'https' or parsed.netloc != 'github.com' or not parsed.path.lower().startswith(prefix):
                   raise SystemExit(f'{key} must be a GitHub Release asset in Devmaha/eip-benchmarks')
           PY
           curl --fail --location --retry 3 --max-time 180 "$AGENTDYN_URL" -o /tmp/agentdyn.zip
