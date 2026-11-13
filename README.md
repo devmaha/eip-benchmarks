@@ -1,4 +1,4 @@
-# EIP — Execution Intelligence Project
+# EIP — (Agentic) Execution Intelligence Platform
 
 **Task-authorized, provenance-aware enforcement for tool-using agents.** EIP evaluates proposed tool effects against the user's task, selected source records, established objects and destinations, and relevant provider state before native dispatch. An external document can supply evidence without gaining authority to issue new instructions.
 
